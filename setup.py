@@ -2,9 +2,9 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
-     name='dokr',  
+     name='django-template',  
      version='0.1',
-     scripts=['dokr'] ,
+     scripts=['django-template'],
      author="Jacob Benaim",
      author_email="benaimjacob@gmail.com",
      description="A Django-template utility package with Auth",
