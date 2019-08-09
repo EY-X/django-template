@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.views.decorators.http import require_http_methods
 # from .forms import *
-# from .models import *
+from tester.models import *
 
 
 def root(request): 
