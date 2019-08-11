@@ -15,7 +15,28 @@ def home(request):
     
 def login_view(request):
     if request.user.is_authenticated:
-        return redirect('/')
+           
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            
+            username = form.cleaned_data['username']
+            pw = form.cleaned_data['password']
+            
+            user = authenticate(username=username, password=pw)
+            
+            if user is not None:
+                login(request, user)
+                return HttpResponseRedirect('/home')
+            else:
+                form.add_error('username', 'Login failed')
+    else:
+        form = LoginForm()
+
+    return render(request, 'login.html', {
+        'form': form
+    }) 
+
 
 def signup(request):
     form = UserCreationForm() 
